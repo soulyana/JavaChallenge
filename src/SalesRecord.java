@@ -9,7 +9,7 @@ public class SalesRecord {
         // Variables to be used in application
         int customerID;
         String customerName, taxCode, ans;
-        double salesAmt, totalAmt;
+        double salesAmt;
 
         // Created to capture user input
         Scanner scan = new Scanner(System.in);
@@ -60,7 +60,7 @@ public class SalesRecord {
     }
 
     // Method displays customer information on console
-    public static void displayDetails(int customerIDIn, String customerNameIn, double salesAmtIn, String taxCodeIn,
+    private static void displayDetails(int customerIDIn, String customerNameIn, double salesAmtIn, String taxCodeIn,
                                       double totalAmtDueIn) {
         System.out.println("Customer ID: " + customerIDIn + "\n" + "Customer Name: " + customerNameIn + "\n"
         + "Sales Amount: $" + salesAmtIn +  "\n" + "Tax Code: " + taxCodeIn + "\n" + "Total Amount Due: $"
@@ -68,7 +68,7 @@ public class SalesRecord {
     }
 
     // Method calculates total amount due by utilizing correct tax based on user entered tax code
-    public static double totalAmtDue(double salesAmtIn, String taxCodeIn) {
+    private static double totalAmtDue(double salesAmtIn, String taxCodeIn) {
         double subtotal, totalAmt, tax = 0.00;
 
             switch (taxCodeIn.toUpperCase()) {
@@ -76,7 +76,7 @@ public class SalesRecord {
                     break;
                 case "NPF": tax = 0.00;
                     break;
-                case "BIZ": tax = 0.45;
+                case "BIZ": tax = 0.045;
                     break;
                 default: System.out.println("Invalid tax code. Please enter correct tax code.");
                     break;
